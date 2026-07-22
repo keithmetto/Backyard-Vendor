@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings — Backyard Vendor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Syne:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html">Backyard <span>Vendor</span></a>
+      <a class="nav-link" href="settings.html" aria-current="page">Settings</a>
+    </header>
+
+    <main class="page">
+      <div class="page-intro">
+        <h1>Settings</h1>
+        <p>Keep your stall details, M-PESA contacts, and nearby preferences up to date.</p>
+      </div>
+
+      <form class="settings-form" id="settingsForm" novalidate>
+        <section class="settings-section" aria-labelledby="profile-heading">
+          <h2 id="profile-heading">Vendor profile</h2>
+          <p class="section-hint">This is what buyers see on your listings and profile.</p>
+
+          <div class="field-row">
+            <div class="field" data-field="displayName">
+              <label for="displayName">Display name</label>
+              <input
+                type="text"
+                id="displayName"
+                name="displayName"
+                autocomplete="name"
+                placeholder="e.g. Amina’s Yard"
+                required
+                maxlength="60"
+              />
+              <p class="field-error" role="alert">Enter a display name.</p>
+            </div>
+
+            <div class="field" data-field="phone">
+              <label for="phone">M-PESA phone</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                autocomplete="tel"
+                inputmode="tel"
+                placeholder="07XX XXX XXX"
+                required
+              />
+              <p class="field-error" role="alert">Enter a valid Kenyan phone number.</p>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field" data-field="estate">
+              <label for="estate">Estate / area</label>
+              <select id="estate" name="estate" required>
+                <option value="">Select your area</option>
+                <option value="langata">Lang'ata</option>
+                <option value="buruburu">Buruburu</option>
+                <option value="westlands">Westlands</option>
+                <option value="karen">Karen</option>
+                <option value="eastleigh">Eastleigh</option>
+                <option value="rongai">Rongai</option>
+                <option value="cbd">Nairobi CBD</option>
+                <option value="other">Other</option>
+              </select>
+              <p class="field-error" role="alert">Choose your estate or area.</p>
+            </div>
+
+            <div class="field" data-field="email">
+              <label for="email">Email <span class="optional">(optional)</span></label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                autocomplete="email"
+                placeholder="you@example.com"
+              />
+              <p class="field-error" role="alert">Enter a valid email address.</p>
+            </div>
+          </div>
+
+          <div class="field" data-field="bio">
+            <label for="bio">Short bio <span class="optional">(optional)</span></label>
+            <textarea
+              id="bio"
+              name="bio"
+              maxlength="240"
+              placeholder="What you sell, pickup notes, or when you're usually around…"
+            ></textarea>
+          </div>
+        </section>
+
+        <section class="settings-section" aria-labelledby="prefs-heading">
+          <h2 id="prefs-heading">Buying preferences</h2>
+          <p class="section-hint">Tune how “Near You” and Kadogo filters work for you.</p>
+
+          <div class="field-row">
+            <div class="field" data-field="nearRadius">
+              <label for="nearRadius">Near You radius</label>
+              <select id="nearRadius" name="nearRadius">
+                <option value="2">Within 2 km</option>
+                <option value="5" selected>Within 5 km</option>
+                <option value="10">Within 10 km</option>
+                <option value="20">Within 20 km</option>
+              </select>
+            </div>
+
+            <div class="field" data-field="kadogoMax">
+              <label for="kadogoMax">Default Kadogo max</label>
+              <select id="kadogoMax" name="kadogoMax">
+                <option value="500">Under 500 KES</option>
+                <option value="1000" selected>Under 1,000 KES</option>
+                <option value="2000">Under 2,000 KES</option>
+                <option value="5000">Under 5,000 KES</option>
+              </select>
+            </div>
+          </div>
+        </section>
+
+        <section class="settings-section" aria-labelledby="notify-heading">
+          <h2 id="notify-heading">Notifications</h2>
+
+          <div class="toggle-list">
+            <label class="toggle">
+              <span class="toggle-copy">
+                <strong>Payment confirmations</strong>
+                <span>Get nudged when a buyer claims they paid via M-PESA.</span>
+              </span>
+              <input type="checkbox" id="notifyPayments" name="notifyPayments" checked />
+              <span class="switch" aria-hidden="true"></span>
+            </label>
+
+            <label class="toggle">
+              <span class="toggle-copy">
+                <strong>Listing interest</strong>
+                <span>Hear when someone saves or asks about your item.</span>
+              </span>
+              <input type="checkbox" id="notifyInterest" name="notifyInterest" checked />
+              <span class="switch" aria-hidden="true"></span>
+            </label>
+
+            <label class="toggle">
+              <span class="toggle-copy">
+                <strong>Kadogo deals nearby</strong>
+                <span>Occasional tips when cheap items appear in your radius.</span>
+              </span>
+              <input type="checkbox" id="notifyKadogo" name="notifyKadogo" />
+              <span class="switch" aria-hidden="true"></span>
+            </label>
+          </div>
+        </section>
+
+        <section class="settings-section" aria-labelledby="trust-heading">
+          <h2 id="trust-heading">Trust & verification</h2>
+          <p class="section-hint">
+            Jua Kali Verified is a visual trust cue. Uploads stay on this device only — nothing is sent to a server.
+          </p>
+
+          <div class="toggle-list">
+            <label class="toggle">
+              <span class="toggle-copy">
+                <strong>Show Jua Kali Verified badge</strong>
+                <span>Display a verified mark on your profile after you add a document photo.</span>
+              </span>
+              <input type="checkbox" id="juaKaliVerified" name="juaKaliVerified" />
+              <span class="switch" aria-hidden="true"></span>
+            </label>
+          </div>
+
+          <div
+            class="badge-preview"
+            id="badgePreview"
+            aria-live="polite"
+          >
+            Jua Kali Verified
+          </div>
+
+          <div class="verify-panel" id="verifyPanel" hidden>
+            <label class="upload-zone" id="uploadZone" for="idDocument">
+              <strong>Drop ID or utility bill photo</strong>
+              <span>PNG or JPG · stored locally for preview only</span>
+              <input type="file" id="idDocument" name="idDocument" accept="image/*" />
+            </label>
+            <div class="upload-preview" id="uploadPreview" aria-live="polite">
+              <img id="uploadThumb" alt="Document preview" />
+              <p id="uploadName"></p>
+            </div>
+          </div>
+        </section>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Save settings</button>
+          <button type="button" class="btn btn-ghost" id="resetBtn">Reset</button>
+        </div>
+      </form>
+    </main>
+
+    <div class="status-toast" id="statusToast" role="status" aria-live="polite"></div>
+
+    <script src="js/settings.js"></script>
+  </body>
+</html>
