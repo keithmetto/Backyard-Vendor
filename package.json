@@ -1,0 +1,11 @@
+{
+  "name": "backyard-vendor",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Capstone project helping small local vendors manage basic listings and settings",
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "start": "npx --yes serve ."
+  }
+}

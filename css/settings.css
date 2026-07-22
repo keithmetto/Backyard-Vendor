@@ -1,0 +1,149 @@
+:root {
+  --ink: #1a2e1f;
+  --muted: #4a5c50;
+  --surface: #f3f7f4;
+  --panel: #ffffff;
+  --accent: #2d6a4f;
+  --accent-hover: #1b4332;
+  --error: #9b2226;
+  --border: #c5d4cb;
+  --focus: #40916c;
+  --font: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font);
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse at top left, #d8f3dc 0%, transparent 55%),
+    linear-gradient(160deg, #e9f5ee 0%, var(--surface) 45%, #eef2ef 100%);
+}
+
+.settings {
+  max-width: 28rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 3rem;
+}
+
+h1 {
+  margin: 0 0 0.35rem;
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.lede {
+  margin: 0 0 1.25rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.save-status {
+  min-height: 1.4em;
+  margin: 0 0 1rem;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.save-status:empty {
+  min-height: 0;
+  margin-bottom: 0;
+}
+
+#settings-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  padding: 1.35rem 1.25rem 1.5rem;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.field label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.field-checkbox {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.65rem;
+}
+
+.field-checkbox .field-error {
+  flex-basis: 100%;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.55rem 0.65rem;
+  font: inherit;
+  color: var(--ink);
+  background: #fafcfb;
+  border: 1px solid var(--border);
+  border-radius: 0.35rem;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--focus);
+  outline-offset: 1px;
+  border-color: var(--focus);
+}
+
+input[aria-invalid="true"],
+select[aria-invalid="true"],
+textarea[aria-invalid="true"] {
+  border-color: var(--error);
+}
+
+.field-error {
+  margin: 0;
+  color: var(--error);
+  font-size: 0.85rem;
+  line-height: 1.35;
+}
+
+button[type="submit"] {
+  margin-top: 0.35rem;
+  padding: 0.7rem 1rem;
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: 0.35rem;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background: var(--accent-hover);
+}
+
+button[type="submit"]:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}

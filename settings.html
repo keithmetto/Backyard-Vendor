@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vendor Settings — Backyard Vendor</title>
+    <link rel="stylesheet" href="css/settings.css" />
+  </head>
+  <body>
+    <main class="settings">
+      <h1>Vendor Settings</h1>
+      <p class="lede">Update how your backyard shop appears to customers.</p>
+
+      <p id="save-status" class="save-status" role="status" aria-live="polite"></p>
+
+      <form id="settings-form" novalidate>
+        <div class="field">
+          <label for="shopName">Shop name</label>
+          <input
+            type="text"
+            id="shopName"
+            name="shopName"
+            autocomplete="organization"
+            maxlength="60"
+            required
+          />
+          <p id="shopName-error" class="field-error" hidden></p>
+        </div>
+
+        <div class="field">
+          <label for="contactPhone">Contact phone</label>
+          <input
+            type="tel"
+            id="contactPhone"
+            name="contactPhone"
+            autocomplete="tel"
+            placeholder="07XXXXXXXX or +2547XXXXXXXX"
+            required
+          />
+          <p id="contactPhone-error" class="field-error" hidden></p>
+        </div>
+
+        <div class="field">
+          <label for="contactEmail">Contact email (optional)</label>
+          <input
+            type="email"
+            id="contactEmail"
+            name="contactEmail"
+            autocomplete="email"
+          />
+          <p id="contactEmail-error" class="field-error" hidden></p>
+        </div>
+
+        <div class="field">
+          <label for="defaultCurrency">Default currency</label>
+          <select id="defaultCurrency" name="defaultCurrency">
+            <option value="KES" selected>KES</option>
+            <option value="USD">USD</option>
+          </select>
+          <p id="defaultCurrency-error" class="field-error" hidden></p>
+        </div>
+
+        <div class="field field-checkbox">
+          <input
+            type="checkbox"
+            id="acceptingOrders"
+            name="acceptingOrders"
+            checked
+          />
+          <label for="acceptingOrders">Accepting orders</label>
+          <p id="acceptingOrders-error" class="field-error" hidden></p>
+        </div>
+
+        <div class="field">
+          <label for="bio">Bio (optional)</label>
+          <textarea
+            id="bio"
+            name="bio"
+            rows="4"
+            maxlength="200"
+          ></textarea>
+          <p id="bio-error" class="field-error" hidden></p>
+        </div>
+
+        <button type="submit">Save settings</button>
+      </form>
+    </main>
+
+    <script type="module" src="js/settings.js"></script>
+  </body>
+</html>

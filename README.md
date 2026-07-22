@@ -11,7 +11,7 @@ Backyard Vendor is a capstone project for the internship program. The goal is to
 
 ## Project Status
 
-This repository is in the setup phase. The initial focus is creating a clean project foundation with documentation, Git hygiene, and AI development conventions.
+Vendor settings are available as a static page with client-side validation and `localStorage` persistence. Catalog and order features are still ahead.
 
 ## Capstone Scope
 
@@ -21,8 +21,26 @@ The first milestone will focus on a simple vendor catalog. A vendor should be ab
 
 1. Install Node.js LTS and Git.
 2. Clone this repository.
-3. Run `npm install` after the project dependencies are added.
+3. No `npm install` is required for the current feature (zero runtime dependencies).
 4. Use Conventional Commits for all changes.
+
+### Open vendor settings
+
+```bash
+npm start
+```
+
+Then open [http://localhost:3000/settings.html](http://localhost:3000/settings.html) in your browser.
+
+Settings are stored in the browser under the key `backyard-vendor-settings`.
+
+### Run tests
+
+```bash
+npm test
+```
+
+Validation helpers are covered with Node’s built-in test runner (`node --test`).
 
 ## Commit Convention
 
@@ -33,3 +51,4 @@ Examples:
 - `docs: add project README`
 - `chore: configure gitignore`
 - `feat: add product listing model`
+- `feat: add vendor settings form with validation`
