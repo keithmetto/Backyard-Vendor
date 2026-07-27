@@ -2,13 +2,16 @@
 
 ## Project Context
 
-Backyard Vendor is a Node.js and JavaScript capstone project for an internship program. The project will focus on helping small local vendors manage and present basic product listings.
+Backyard Vendor is a Next.js capstone for an internship program. It helps small local vendors manage and present basic product listings — not a full marketplace.
 
 ## Stack
 
 - Runtime: Node.js LTS
+- Framework: Next.js (App Router), React
 - Language: JavaScript
+- Styling: Tailwind CSS v4 with tokens in `app/globals.css`
 - Package manager: npm
+- Hosting: Vercel (preview deployments on push)
 - IDE: Cursor
 - Version control: Git and GitHub
 
@@ -17,14 +20,15 @@ Backyard Vendor is a Node.js and JavaScript capstone project for an internship p
 - Use Conventional Commits for every commit.
 - Keep documentation current when setup or usage changes.
 - Prefer clear, small changes that are easy to review.
-- Do not commit secrets, `.env` files, generated build output, or dependency folders.
-- Use plain JavaScript until the project has a clear need for additional tooling.
+- Do not commit secrets, `.env` / `.env.local` files, generated build output (`.next`), or `node_modules`.
+- Default to Server Components; use Client Components only for interactivity.
+- Scaffold routes and placeholders before polishing UI.
 
 ## Project rules (learned from FE foundations drill)
 
 These rules are testable in review. Prefer failing a PR over “clean code” vibes.
 
-1. **Form validation is pure and tested.** Put rules in `js/*-validation.js` with no DOM access. Cover them with `npm test` (`node --test`). Do not bury validation only inside UI event handlers.
+1. **Form validation is pure and tested.** Put rules in `*-validation.js` (or `lib/*-validation.js`) with no DOM access. Cover them with `npm test` (`node --test`). Do not bury validation only inside UI event handlers.
 2. **Vendor settings persistence key is fixed.** Client settings use `localStorage` key `backyard-vendor-settings` only. Do not invent alternate keys (e.g. `bv-settings`) without an explicit migration note in the README.
 3. **Invalid fields must be programmatically associated.** On validation failure, set `aria-invalid="true"` and `aria-describedby` on the control pointing at a visible error element (`{id}-error`). Labels alone or decorative `role="alert"` text are not enough.
 4. **Kenyan mobile format for contact phone.** Accept only `07XXXXXXXX` or `+2547XXXXXXXX` (after trim). Reject other shapes in validation tests.
