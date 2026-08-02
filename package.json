@@ -12,9 +12,13 @@
     "test": "node --test legacy/settings-drill/test/settings-validation.test.js"
   },
   "dependencies": {
+    "@ai-sdk/google": "^4.0.31",
+    "@ai-sdk/react": "^4.0.51",
+    "ai": "^7.0.48",
     "next": "16.2.12",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

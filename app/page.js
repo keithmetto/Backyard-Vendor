@@ -31,6 +31,17 @@ export default function HomePage() {
           <p className="mt-1 text-sm text-muted">Listing placeholders for every product screen.</p>
         </Link>
         <Link
+          href="/assistant"
+          className="rounded-[var(--radius)] border border-border bg-surface px-5 py-4 transition hover:border-brand"
+        >
+          <h2 className="font-display text-xl font-semibold text-brand">
+            Listing Assistant
+          </h2>
+          <p className="mt-1 text-sm text-muted">
+            Streaming AI chat for titles, descriptions, and pricing copy.
+          </p>
+        </Link>
+        <Link
           href="/settings"
           className="rounded-[var(--radius)] border border-border bg-surface px-5 py-4 transition hover:border-brand"
         >
