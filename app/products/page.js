@@ -1,36 +1,30 @@
 import Link from "next/link";
-import PlaceholderPanel from "@/components/PlaceholderPanel";
+import ProductManager from "@/components/ProductManager";
 
 export const metadata = {
-  title: "Products",
+  title: "Manage products",
 };
-
-const placeholderProducts = [
-  { id: "sukuma", name: "Sukuma wiki bundle" },
-  { id: "eggs", name: "Farm eggs (tray)" },
-  { id: "honey", name: "Backyard honey" },
-];
 
 export default function ProductsPage() {
   return (
-    <PlaceholderPanel
-      title="Products"
-      note="Placeholder list — create/edit flows will be added later. No marketplace extras in this scaffold."
-    >
-      <p>Routed product screens for the vendor catalog milestone.</p>
-      <ul className="mt-6 space-y-3">
-        {placeholderProducts.map((product) => (
-          <li key={product.id}>
-            <Link
-              href={`/products/${product.id}`}
-              className="block rounded-[var(--radius)] border border-border px-4 py-3 transition hover:border-brand hover:bg-accent-soft/60"
-            >
-              <span className="font-medium text-foreground">{product.name}</span>
-              <span className="mt-1 block text-sm text-muted">Open detail placeholder</span>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </PlaceholderPanel>
+    <div className="mx-auto w-full max-w-3xl space-y-4">
+      <header className="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <h1 className="font-display text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+            Manage products
+          </h1>
+          <p className="mt-2 text-base text-muted">
+            Add, edit, or remove what customers see in your catalog.
+          </p>
+        </div>
+        <Link
+          href="/products/new"
+          className="rounded-xl bg-brand px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-brand-strong"
+        >
+          Add product
+        </Link>
+      </header>
+      <ProductManager />
+    </div>
   );
 }

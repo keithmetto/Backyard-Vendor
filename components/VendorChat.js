@@ -6,6 +6,8 @@ import { useEffect, useRef, useState } from "react";
 
 const NEAR_BOTTOM_PX = 80;
 
+const chatTransport = new DefaultChatTransport({ api: "/api/chat" });
+
 function messageHasText(message) {
   return message.parts?.some(
     (part) => part.type === "text" && part.text.trim().length > 0,
@@ -35,12 +37,9 @@ export default function VendorChat() {
 
   const scrollerRef = useRef(null);
   const bottomRef = useRef(null);
-  const transportRef = useRef(
-    new DefaultChatTransport({ api: "/api/chat" }),
-  );
 
   const { messages, sendMessage, status, stop, error, regenerate } = useChat({
-    transport: transportRef.current,
+    transport: chatTransport,
   });
 
   const isBusy = status === "submitted" || status === "streaming";
