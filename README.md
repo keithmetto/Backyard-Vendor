@@ -6,7 +6,7 @@ customers get a clean catalog and a number to call. Writing listings is the slow
 part, so the product form can **draft a listing from rough notes** with AI
 (e.g. _"chapati 50 bob each, soft, made fresh every morning, only 20 a day"_).
 
-- **Live app:** _add your Vercel production URL here_
+- **Live app:** <https://backyard-vendor.vercel.app>
 - **Capstone write-up:** [`docs/CAPSTONE_SUBMISSION.md`](docs/CAPSTONE_SUBMISSION.md)
 - **Deployment checklist:** [`DEPLOYMENT_CHECKLIST.md`](DEPLOYMENT_CHECKLIST.md)
 
