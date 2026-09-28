@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { NOTES_LIMITS, validateNotes } from "@/lib/ai/listing-draft";
+import { NOTES_LIMITS, validateNotes } from "@/lib/notes-validation";
 import { inputClass } from "@/components/FormField";
 
 const FALLBACK_MESSAGE =
