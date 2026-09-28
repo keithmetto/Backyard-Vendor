@@ -13,7 +13,7 @@ solves a real friction point without turning into a marketplace.
 
 ## Links
 
-- **Live app:** _Vercel production URL_
+- **Live app:** <https://backyard-vendor.vercel.app>
 - **Repository:** <https://github.com/keithmetto/Backyard-Vendor>
 - **README (setup, architecture, AI design, limitations):** [README.md](../README.md)
 
