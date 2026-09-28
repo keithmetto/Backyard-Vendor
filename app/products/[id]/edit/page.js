@@ -1,22 +1,22 @@
-import SettingsPanel from "@/components/SettingsPanel";
+import ProductEditor from "@/components/ProductEditor";
 
 export const metadata = {
-  title: "Settings",
+  title: "Edit product",
 };
 
-export default function SettingsPage() {
+export default async function EditProductPage({ params }) {
+  const { id } = await params;
   return (
     <div className="mx-auto w-full max-w-2xl space-y-6">
       <header>
         <h1 className="font-display text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-          Vendor settings
+          Edit product
         </h1>
         <p className="mt-2 text-base text-muted">
-          Your shop name, contact details, and currency appear on the catalog.
-          Saved in this browser only.
+          Update the details, or redraft them from new notes.
         </p>
       </header>
-      <SettingsPanel />
+      <ProductEditor productId={id} />
     </div>
   );
 }

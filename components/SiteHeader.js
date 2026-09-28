@@ -1,12 +1,5 @@
 import Link from "next/link";
-
-const links = [
-  { href: "/", label: "Catalog" },
-  { href: "/products", label: "Products" },
-  { href: "/settings", label: "Settings" },
-  { href: "/about", label: "About" },
-  { href: "/health", label: "Health" },
-];
+import NavLinks from "@/components/NavLinks";
 
 export default function SiteHeader() {
   return (
@@ -15,17 +8,7 @@ export default function SiteHeader() {
         <Link href="/" className="font-display text-2xl font-semibold tracking-tight text-brand">
           Backyard Vendor
         </Link>
-        <nav aria-label="Primary" className="flex flex-wrap gap-x-4 gap-y-2 text-sm font-medium text-muted">
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="transition-colors hover:text-brand"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+        <NavLinks />
       </div>
     </header>
   );

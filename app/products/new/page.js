@@ -1,22 +1,21 @@
-import SettingsPanel from "@/components/SettingsPanel";
+import ProductEditor from "@/components/ProductEditor";
 
 export const metadata = {
-  title: "Settings",
+  title: "Add product",
 };
 
-export default function SettingsPage() {
+export default function NewProductPage() {
   return (
     <div className="mx-auto w-full max-w-2xl space-y-6">
       <header>
         <h1 className="font-display text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-          Vendor settings
+          Add product
         </h1>
         <p className="mt-2 text-base text-muted">
-          Your shop name, contact details, and currency appear on the catalog.
-          Saved in this browser only.
+          Let the AI draft it from your notes, or fill in the form yourself.
         </p>
       </header>
-      <SettingsPanel />
+      <ProductEditor />
     </div>
   );
 }
