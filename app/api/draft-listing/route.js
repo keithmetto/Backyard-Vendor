@@ -16,7 +16,7 @@ import {
 
 export const maxDuration = 30;
 
-const DRAFT_TIMEOUT_MS = 20_000;
+const DRAFT_TIMEOUT_MS = 25_000;
 
 function errorResponse(status, code, message) {
   return Response.json({ error: { code, message } }, { status });
@@ -58,7 +58,8 @@ export async function POST(req) {
       prompt: buildDraftPrompt(notes, currency),
       output: Output.object({ schema: listingDraftSchema, name: "listing_draft" }),
       temperature: 0.3,
-      maxRetries: 1,
+      // Free-tier Gemini returns transient 503 "high demand" errors.
+      maxRetries: 2,
       timeout: DRAFT_TIMEOUT_MS,
       abortSignal: req.signal,
     });

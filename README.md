@@ -106,8 +106,8 @@ slow, especially on a phone. They can describe it in one line the way they'd tel
 | Notes too short/long | Blocked in the browser and on the server (400); no model call |
 | No API key on the server | 503 `ai_not_configured`, and the form still works by hand |
 | Model output doesn't match the schema | 502 `invalid_ai_output`, with a "Try again" button |
-| Model takes more than 20 s | 504 `ai_timeout`; the vendor can also press **Cancel** at any time |
-| Provider/quota error | 502 `ai_unavailable`, logged server-side |
+| Model takes more than 25 s | 504 `ai_timeout`; the vendor can also press **Cancel** at any time |
+| Provider busy (503), quota, or retired model | Retried twice, then 502 `ai_unavailable`, logged server-side |
 | Draft breaks product rules (too long, no price) | Text is clamped, the price is left empty, and a warning is shown |
 
 The AI never writes to storage. Every draft still goes through `validateProduct()` on save.
@@ -144,7 +144,8 @@ Hosted on Vercel. Every push creates a Preview deployment, and `main` deploys to
 See [`.env.example`](.env.example). Never commit `.env.local`.
 
 - `GOOGLE_GENERATIVE_AI_API_KEY`: **server-only** Gemini key (never `NEXT_PUBLIC_`)
-- `GOOGLE_GENERATIVE_MODEL`: optional model override (default `gemini-2.0-flash`)
+- `GOOGLE_GENERATIVE_MODEL`: optional model override (default `gemini-flash-latest`, an alias
+  for Google's current Flash model; pinned ids like `gemini-2.0-flash` have been retired)
 - `NEXT_PUBLIC_SITE_URL`: public site URL
 - `NEXT_PUBLIC_APP_ENV`: label on the health page
 
