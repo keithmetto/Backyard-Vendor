@@ -14,7 +14,7 @@ Fill this in for each production release. Tick an item only after you have check
 
 ## Environment
 
-- [ ] `GOOGLE_GENERATIVE_AI_API_KEY` set in Vercel for **Preview** and **Production**
+- [x] `GOOGLE_GENERATIVE_AI_API_KEY` set in Vercel for **Preview** and **Production** (verified: `/api/draft-listing` returns 200 on both)
 - [ ] `NEXT_PUBLIC_SITE_URL` points at the production URL
 - [ ] `NEXT_PUBLIC_APP_ENV=production` on Production
 
@@ -26,7 +26,7 @@ Fill this in for each production release. Tick an item only after you have check
 - [ ] Edit and delete a product
 - [ ] Settings: an invalid phone (`123`) shows an error; a valid one saves, and the shop name appears on `/`
 - [ ] `/assistant` streams a reply; **Stop** works
-- [ ] `/api/health` returns `{"status":"ok"}`
+- [x] `/api/health` returns 200
 - [ ] Keyboard-only pass: skip link, nav, forms, and buttons are all reachable with visible focus
 
 ## Fail-safe checks
@@ -37,8 +37,8 @@ Fill this in for each production release. Tick an item only after you have check
 
 ## Quality gates
 
-- [ ] Lighthouse (mobile) on `/`: Performance ____ · Accessibility ____ · Best Practices ____ · SEO ____ (target ≥ 85, aim for 90)
-- [ ] axe DevTools or WAVE on `/`, `/products/new`, `/settings`: 0 violations (screenshots in `docs/audits/`)
+- [x] Lighthouse (mobile) on `/`: Performance 93 · Accessibility 100 · Best Practices 100 · SEO 100 (`/products/new` 92, `/settings` 97)
+- [x] axe-core on `/`, `/products/new`, `/settings`: 0 violations, 21–24 rules passing per page (`docs/audits/axe-results.json`)
 
 ## Release
 

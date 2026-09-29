@@ -36,7 +36,7 @@ export default function RootLayout({ children }) {
         <main id="main" className="mx-auto w-full max-w-6xl flex-1 px-4 py-8 sm:px-6 sm:py-10">
           {children}
         </main>
-        <footer className="border-t border-border py-6 text-center text-sm text-muted">
+        <footer className="border-t border-border bg-surface py-6 text-center text-sm text-muted">
           Backyard Vendor · a catalog for small local vendors ·{" "}
           <Link href="/health" className="underline underline-offset-2 hover:text-brand">
             Status

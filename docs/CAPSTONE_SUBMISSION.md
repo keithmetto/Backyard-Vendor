@@ -47,13 +47,35 @@ solves a real friction point without turning into a marketplace.
 
 ## Performance and accessibility audit
 
-| Page | Performance | Accessibility | Best Practices | SEO |
-|------|-------------|---------------|----------------|-----|
-| `/` (mobile) | | | | |
-| `/products/new` (mobile) | | | | |
+Lighthouse, mobile, on production (`https://backyard-vendor.vercel.app`). Reports are in `docs/audits/`.
 
-- axe / WAVE: _number of violations per page_ (screenshots in `docs/audits/`)
-- **Improvement made from the audit:** _describe the finding → fix → re-test score_
+| Page | Performance (before → after) | Accessibility | Best Practices | SEO |
+|------|------------------------------|---------------|----------------|-----|
+| `/` | 91 → 93 | 100 | 100 | 100 |
+| `/products/new` | **89 → 92** | 100 | 100 | 100 |
+| `/settings` | 99 → 97 | 100 | 100 | 100 |
+
+Performance varies by a few points between runs (network and CPU throttling), so the `/` and
+`/settings` changes are noise; `/products/new` is the page the fix targeted.
+
+**axe-core 4.12** (WCAG 2.0/2.1 A + AA rules) on production: **0 violations** on `/`,
+`/products/new`, and `/settings`, with 21, 24, and 24 rules passing
+(`docs/audits/axe-results.json`). axe flagged the header nav links for manual contrast
+review because they sat on a translucent header over a background gradient; checked by hand
+(muted `#5c6d62` on near-white is about 5.4:1, above the 4.5:1 AA minimum).
+
+**Improvement made from the audit:** Lighthouse flagged ~205 KiB of unused JavaScript on
+`/products/new`. The cause was an import: `DraftFromNotes` imported `validateNotes` from
+`lib/ai/listing-draft.js`, which also imports **zod** to build the AI schema, so zod and its
+JSON-schema converter shipped to the browser. I moved the notes rules into a zod-free
+`lib/notes-validation.js` ([PR #3](https://github.com/keithmetto/Backyard-Vendor/pull/3)).
+Result: page JavaScript **909 KB → 632 KB (−277 KB, −30%)**, unused JS 205 → 104 KiB,
+Performance 89 → 92. zod now only loads on `/assistant`, where the chat SDK needs it.
+
+**Audit mistake I caught:** my first axe CLI run reported "0 violations" on every page, but
+PowerShell had split the `--tags` list into one invalid tag, so **zero rules actually ran**.
+Checking the saved JSON (0 passes, 0 inapplicable) exposed it; the rerun above ran 21–24 rules
+per page. "No violations" is only meaningful next to a non-zero pass count.
 
 Accessibility built in from the start: skip link, `aria-current` on nav, every control
 labelled, invalid fields set `aria-invalid` + `aria-describedby` to a visible `{id}-error`,
